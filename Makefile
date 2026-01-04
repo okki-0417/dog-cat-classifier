@@ -1,11 +1,13 @@
 .PHONY: run inspect setup
 
+PYTHON = venv/bin/python
+
 run:
-	python classify_dog_cat.py $(IMG)
+	$(PYTHON) -m dog_cat_classifier $(IMG)
 
 inspect:
-	python inspect_model.py
+	$(PYTHON) -m dog_cat_classifier.inspect_model
 
 setup:
 	python3 -m venv venv
-	. venv/bin/activate && pip install -r requirements.txt
+	venv/bin/pip install -r requirements.txt
